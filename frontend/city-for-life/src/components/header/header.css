@@ -1,0 +1,29 @@
+.header {
+   background-color: #77c0ee;
+   padding: 10px;
+}
+
+.container {
+   max-width: 1000px;
+   margin: 0 auto;
+   
+}
+
+.header__list {
+   display: flex;
+   justify-content: space-between;
+   list-style: none;
+   padding: 0;
+   
+}
+
+.header__list li {
+   font-size: 25px;
+}
+
+.header__link {
+   color: #000;
+   text-decoration: none;
+   line-height: 40px;
+}
+
