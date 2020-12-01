@@ -8,7 +8,7 @@ BACKEND:
 В выбранной директории, в командной строке (VS Code) прописать: 
 
 	python -m venv myvenv
-	myvenv/Scripts/activate 
+	source myvenv/Scripts/activate 
 
 В командной строке должен появиться префикс (myvenv)
 
