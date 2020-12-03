@@ -1,4 +1,17 @@
 # City-for-life
+
+
+FRONTEND:
+
+набор команд для локального запуска React приложения
+
+cd frontend
+cd city-for-life
+npm install
+npm start
+
+=======
+
 BACKEND:
 
 1. Установка Python (последняя версия - 3.9.0): https://www.python.org/downloads/
@@ -31,3 +44,4 @@ BACKEND:
 6. Для завершения работы в виртуальном окружении в командной строке:
 
 	deactivate
+
