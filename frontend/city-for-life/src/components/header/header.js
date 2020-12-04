@@ -20,7 +20,7 @@ const Header = () => {
          <div className = "header__container container">
             <ul className = 'header__list'>
                <li>
-                  <Link className = "header__link" to = '/'>Город для жизни</Link>
+                  <Link className = "header__link" to = '/'>Город  для  жизни</Link>
                </li>
                <li>
                   <Link to = '/login/'>
