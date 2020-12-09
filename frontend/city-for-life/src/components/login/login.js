@@ -30,6 +30,9 @@ import { useEffect } from 'react'
    submit: {
      margin: theme.spacing(3, 0, 2),
    },
+   error: {
+      color: theme.palette.error.dark
+   }
  }));
  
 
@@ -44,8 +47,6 @@ import { useEffect } from 'react'
    const [passwordError, setPasswordError] = useState('Пароль не может быть пустым');
    const [formValid, setFormValid] = useState(false)
 
-   console.log(emailDirty);
-   console.log(emailError);
 
    useEffect( () => {
       if (emailError || passwordError) {
@@ -105,7 +106,7 @@ import { useEffect } from 'react'
            Войти
          </Typography>
          <form className={classes.form}>
-            {(emailDirty && emailError) && <div style={{color: 'red'}}>{emailError}</div>}
+            {(emailDirty && emailError) && <div className={classes.error}>{emailError}</div>}
            <TextField
              value = {email}
              variant="outlined"
@@ -120,7 +121,7 @@ import { useEffect } from 'react'
              onChange = {e => emailHandler(e)}
              onBlur = {e => blurHandler(e)}
            />
-           {(passwordDirty && passwordError) && <div style={{color: 'red'}}>{passwordError}</div>}
+           {(passwordDirty && passwordError) && <div className={classes.error}>{passwordError}</div>}
            <TextField
              value = {password}
              variant="outlined"
