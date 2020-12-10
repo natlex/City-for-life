@@ -2,9 +2,7 @@
 Hello Oswald!
 test
 
-
-
+# Для запуска
 cd frontend
-cd city-for-life
 npm install
 npm start
