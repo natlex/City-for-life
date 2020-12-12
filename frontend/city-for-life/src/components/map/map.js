@@ -1,6 +1,7 @@
 import React from "react";
 import Container from '@material-ui/core/Container';
 import { makeStyles } from '@material-ui/core/styles';
+import { YMaps, Map } from 'react-yandex-maps';
 
 const useStyles = makeStyles((theme) => ({
    mapContainer: {
@@ -12,40 +13,31 @@ const useStyles = makeStyles((theme) => ({
    }
  }));
 
-const loadScript = (src, onLoad) => {
-  const script = document.createElement("script");
 
-  script.src = src;
-  script.async = true;
-  document.body.appendChild(script);
-  script.onload = onLoad;
+const mapData = {
+center: [61.78, 34.35],
+   zoom: 13
 };
 
-const init = () => {
-  new window.ymaps.Map("map", {
 
-    center: [61.78, 34.35],
-    zoom: 13
-  });
-};
+const apikey = 'b96f32c7-b745-4db2-976d-22fb3e1211c0';
 
-const Map = () => {
+const Maps = () => {
    const classes = useStyles();
+   return (
+      <Container component="main" maxWidth="lg" className={classes.mapContainer}>
+         <YMaps query={{
+               apikey
+         }}>
+            <div>
+            <Map  className={classes.map} defaultState={mapData}/>
+            </div>
+         </YMaps>
+      </Container>
+   )
 
-   React.useEffect(() => {
-    loadScript("https://api-maps.yandex.ru/2.1/?apikey=b96f32c7-b745-4db2-976d-22fb3e1211c0&lang=ru_RU", () => {
-      window.ymaps.ready(init);
-       });
-    }, []);
-
-  return (
-    <Container component="main" maxWidth="lg" className={classes.mapContainer}>
-      <div id="map" className={classes.map}/>
-    </Container>
-  );
 }
 
-
-export default Map;
+export default Maps;
 
 
