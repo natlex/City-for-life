@@ -6,11 +6,10 @@ FRONTEND:
 набор команд для локального запуска React приложения
 
 cd frontend
-cd city-for-life
-npm install
-npm start
 
-=======
+npm install
+
+npm start
 
 BACKEND:
 
