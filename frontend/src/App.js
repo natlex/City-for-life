@@ -11,13 +11,13 @@ import Test from './Components/Test1/Test1';
 const App = () => {
   return (
     <BrowserRouter>
-      <div className='app'>
+      <div className="app">
         <Header />
         <Navbar />
-        <div className='app-content'>
-          <Route exact path='/' render={() => <Test />}/>
-          <Route exact path='/login' render={() => <LogInPage />}/>
-          <Route exact path='/map' render={() => <MapPage />}/>
+        <div className="app-content">
+          <Route exact path="/" render={() => <Test />}/>
+          <Route exact path="/login" render={() => <LogInPage />}/>
+          <Route exact path="/map" render={() => <MapPage />}/>
         </div>
       </div>
     </BrowserRouter>
