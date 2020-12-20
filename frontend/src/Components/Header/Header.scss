@@ -1,4 +1,31 @@
 .header {
-  margin-top: 200px;
-  margin-bottom: 100px;
+   background-color: #77c0ee;
+   padding: 10px; 
+   position: fixed;
+   left: 0;
+   right: 0;
+   top: 0;
+   z-index: 2;
+    &__list {
+      display: flex;
+      justify-content: space-between;
+      list-style: none;
+      padding: 0;
+      li {
+         font-size: 25px;
+      }
+      .header__avatar {
+         background-color: #5f5fc4;
+      }
+   }
+   &__link {
+      color: #000;
+      text-decoration: none;
+   }
 }
+
+.container {
+   max-width: 1000px;
+   margin: 0 auto;
+}
+

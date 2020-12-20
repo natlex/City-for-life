@@ -10,10 +10,13 @@ import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import './LogInPage.scss'
+import {connect} from 'react-redux';
+import * as actions from '../../action';
+import {bindActionCreators} from 'redux';
+import { Redirect } from "react-router";
+import './LogInPage.scss';
  
-
- const LoginPage = () => {   
+ const LogInPage = ({login, value}) => {   
    const [email, setEmail] = useState('');
    const [password, setPassword] = useState('');
    const [emailDirty, setEmailDirty] = useState(false);
@@ -38,7 +41,7 @@ import './LogInPage.scss'
       if(!re.test(String(e.target.value).toLowerCase())) {
          setEmailError('Некорректный e-mail')
          if (!e.target.value) {
-            setEmailError ('Пароль не может быть пустым')
+            setEmailError ('E-mail не может быть пустым')
          }
       }  else {
          setEmailError('')
@@ -70,17 +73,29 @@ import './LogInPage.scss'
       }
    }
 
+   const submitData = (e) => {
+      e.preventDefault()
+      login(email)
+      setEmail('')
+      setPassword('')
+      }
+
+   if (value) {
+      return <Redirect push to="/"/>
+   }
    return (
      <Container component="main" maxWidth="xs">
        <CssBaseline />
        <div className="wrapper">
          <Avatar className="wrapper__avatar">
-           <LockOutlinedIcon />
+            <LockOutlinedIcon />
          </Avatar>
          <Typography component="h1" variant="h5">
            Войти
          </Typography>
-         <form className="wrapper__form">
+         <form 
+         className="wrapper__form"
+         onSubmit = {(e) => submitData(e)}>
             {(emailDirty && emailError) && <div className='wrapper__error'>{emailError}</div>}
            <TextField
              value = {email}
@@ -129,14 +144,30 @@ import './LogInPage.scss'
              </Grid>
              <Grid item>
                <Link href="#" variant="body2">
-                 {"Зарегистрироваться"}
+                 Зарегистрироваться
                </Link>
              </Grid>
            </Grid>
          </form>
-       </div>
+       </div> 
+       
      </Container>
    );
  }
 
-export default LoginPage;
+
+ const mapStateToProps = (state) => {
+   return {
+      value: state.boolean
+   }
+} 
+
+
+const mapDispatchToProps = (dispatch) => {
+   const {login} = bindActionCreators(actions, dispatch)
+   return {
+      login
+   }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(LogInPage);
