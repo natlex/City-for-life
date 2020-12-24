@@ -20,14 +20,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = '3ag$vw#_5i1uk4(k1-7ute_nza6m9&lx8#l_dhl%d0odcfej1q'
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '3ag$vw#_5i1uk4(k1-7ute_nza6m9&lx8#l_dhl%d0odcfej1q')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
-DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
+DEBUG = bool(os.environ.get('DJANGO_DEBUG', False))
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -58,7 +56,7 @@ ROOT_URLCONF = 'city_for_life.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'frontend/build')],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -79,8 +77,12 @@ WSGI_APPLICATION = 'city_for_life.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'django_db',
+        'USER' : 'postgres',
+        'PASSWORD' : 'password',
+        'HOST' : 'localhost',
+        'PORT' : '5432',
     }
 }
 
@@ -123,7 +125,3 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
-STATICFILES_DIRS = (
-    (os.path.join(BASE_DIR, 'frontend/build/static')),
-)
