@@ -15,10 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from app.views import index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',index),
-    path('api/', include('app.api.urls'))
+    path('api/', include('city_for_life_back.api.urls'))
 ]
