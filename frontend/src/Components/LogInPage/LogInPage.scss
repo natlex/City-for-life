@@ -1,0 +1,42 @@
+.wrapper {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   margin-top: 200px;
+   .wrapper__avatar {
+      background-color: rgb(95, 95, 196);
+   }
+   &__form {
+      width: 100%;
+      margin-top: 10px;
+      .button-google {
+         width: 100%;
+         margin-bottom: 10px;
+         border-radius: 50px;
+         &__wrapper {
+            display: flex;
+         }
+         &__icon {
+            width: 20px;
+            height: 20px;
+         }
+         &__text{
+            margin-left: 20px;
+         }
+      }
+   }
+   .wrapper__submit {
+      margin: 20px 0;
+   }
+
+   &__error {
+      color: red;
+   }
+}
+
+
+
+.button-logout {
+   color: #77c0ee;
+   font-size: 17px;
+}
